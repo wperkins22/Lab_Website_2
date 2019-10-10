@@ -90,9 +90,7 @@ function loadStatsPage() {
 	for (row_counter = 2; row_counter < table.rows.length; row_counter++){
 		opponent = table.rows[row_counter].cells[1].innerHTML;
 		buffsScore = table.rows[row_counter].cells[2].innerHTML;
-		console.log(buffsScore);
 		oppScore = table.rows[row_counter].cells[3].innerHTML;
-		console.log(oppScore);
 		var buffsScore_int = parseInt(buffsScore, 10);
 		var oppScore_int = parseInt(oppScore, 10);
 		if (buffsScore_int > oppScore_int) {
@@ -162,9 +160,9 @@ function loadPlayersPage() {
 	for (player_index = 0; player_index < players.length; player_index++) {
 		var listItem = document.createElement("li");
 		var aTag = document.createElement("a");
-		aTag.onclick = switchPlayers(player_index);
-		aTag.role = "menuitem";
 		aTag.href = "#";
+		aTag.addEventListener("click", switchPlayers(player_index));
+		aTag.role = "menuitem";
 		aTag.text = players[player_index].name;
 		listItem.appendChild(aTag);
 		tagList.appendChild(listItem);
